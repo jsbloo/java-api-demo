@@ -17,6 +17,7 @@ import java.util.List;
 @Entity
 public class MilitaryPlane extends Plane{
 
+
     @Column
     @ElementCollection
     private List<String> armament;
