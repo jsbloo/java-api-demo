@@ -28,4 +28,8 @@ public class MilitaryPlaneDTO extends Plane {
     private int maneuverability;
 
     private double topSpeed;
+
+    public MilitaryPlaneDTO(){
+        super();
+    }
 }
