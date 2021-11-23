@@ -6,10 +6,7 @@ import com.qa.QAAPIPROJECT.model.MilitaryPlane;
 import com.qa.QAAPIPROJECT.model.Plane;
 import com.qa.QAAPIPROJECT.service.MilitaryPlaneService;
 import com.qa.QAAPIPROJECT.service.PlaneService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class MilitaryPlaneController{
     }
 
     @PostMapping("/createMp")
-    public String create(List<MilitaryPlane> plane) {
+    public String create(@RequestBody List<MilitaryPlane> plane) {
         service.addPlane(plane);
         return "mp added";
     }
@@ -34,29 +31,29 @@ public class MilitaryPlaneController{
     }
 
     @GetMapping("readByIdMp/{id}")
-    public MilitaryPlaneDTO readById(long id) {
+    public MilitaryPlaneDTO readById(@PathVariable long id) {
         return service.readById(id);
     }
 
     @PutMapping("/updateMp/{id}")
-    public String update(long id, MilitaryPlane plane) {
+    public String update(@PathVariable long id, @RequestBody MilitaryPlane plane) {
         service.update(id, plane);
         return "MP updated" + id;
     }
 
     @PutMapping("deleteMp/{id}")
-    public String delete(long id) {
+    public String delete(@PathVariable long id) {
         service.delete(id);
         return "deleted "+ id;
     }
 
     @GetMapping("readByNameMp/{name}")
-    public List<MilitaryPlaneDTO> readByName(String name) {
+    public List<MilitaryPlaneDTO> readByName(@PathVariable String name) {
         return service.readByName(name);
     }
 
     @GetMapping("readByNationalOriginMp/{nation}")
-    public List<MilitaryPlaneDTO> readByByNationalOrigin(String nation) {
+    public List<MilitaryPlaneDTO> readByByNationalOrigin(@PathVariable String nation) {
         return service.readByNationalOrigin(nation);
     }
 }
