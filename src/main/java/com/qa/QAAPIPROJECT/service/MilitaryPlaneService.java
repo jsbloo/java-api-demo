@@ -1,13 +1,17 @@
 package com.qa.QAAPIPROJECT.service;
 
 import com.qa.QAAPIPROJECT.dto.MilitaryPlaneDTO;
+import com.qa.QAAPIPROJECT.exceptions.InvalidPlaneException;
+import com.qa.QAAPIPROJECT.exceptions.PlaneNotFoundException;
 import com.qa.QAAPIPROJECT.model.MilitaryPlane;
 import com.qa.QAAPIPROJECT.repository.MilitaryPlaneRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,44 +30,21 @@ public class MilitaryPlaneService {
         return this.mapper.map(mp, MilitaryPlaneDTO.class);
     }
 
-
     public void addPlane(List<MilitaryPlane> plane) {
         for (MilitaryPlane mp:
              plane) {
-            repo.save(mp);
+            try{
+            repo.save(mp);}catch (Exception e){throw new InvalidPlaneException();
+            }
         }
     }
 
     public void update(long id, MilitaryPlane plane){
-
-        MilitaryPlane currentMp = repo.getById(id);
-
         if(plane.getId()!=id){
             plane.setId(id);
         }
-        if(plane.getNationalOrigin()==null){
-            plane.setNationalOrigin(currentMp.getNationalOrigin());
-        }
-        if(plane.getModelName()==null){
-            plane.setModelName(currentMp.getModelName());
-        }
-        if(plane.getIntroductionDate()==null){
-            plane.setIntroductionDate(currentMp.getIntroductionDate());
-        }
-        if(plane.getArmament()==null){
-            plane.setArmament(currentMp.getArmament());
-        }
-        if(plane.getAttackPower()==0){//this causes a bug, should change
-            plane.setAttackPower(currentMp.getAttackPower());
-        }
-        if(plane.getManeuverability()==0){
-            plane.setManeuverability(currentMp.getManeuverability());
-        }
-        if(plane.getTopSpeed()==0){
-            plane.setTopSpeed(currentMp.getTopSpeed());
-        }
-
-        repo.save(plane);
+        repo.findById(id).orElseThrow(PlaneNotFoundException::new);
+        try{repo.save(plane);}catch (Exception e){throw new InvalidPlaneException();}
     }
 
     public List<MilitaryPlaneDTO> getAll(){
@@ -72,21 +53,31 @@ public class MilitaryPlaneService {
     }
 
     public MilitaryPlaneDTO readById(long id){
-        return mapToDto(repo.findById(id)
-                .stream().findFirst().orElse(null));
+        MilitaryPlane found = repo.findById(id).orElseThrow(PlaneNotFoundException::new);
+        return mapToDto(found);
     }
 
     public void delete(long id){
-        repo.deleteById(id);
+        try{repo.deleteById(id);}catch (Exception e){
+            throw new PlaneNotFoundException();
+        }
     }
 
     public List<MilitaryPlaneDTO> readByName(String name){
+        try{
         return repo.findPlaneByModelName(name)
-                .stream().map(this::mapToDto).collect(Collectors.toList());
+                .stream().map(this::mapToDto).collect(Collectors.toList());}
+        catch (Exception e){
+            throw new PlaneNotFoundException();
+        }
     }
 
     public List<MilitaryPlaneDTO> readByNationalOrigin(String nation) {
+        try{
         return repo.findPlaneByNationalOrigin(nation)
-                .stream().map(this::mapToDto).collect(Collectors.toList());
+                .stream().map(this::mapToDto).collect(Collectors.toList());}
+        catch (Exception e){
+            throw new PlaneNotFoundException();
+        }
     }
 }

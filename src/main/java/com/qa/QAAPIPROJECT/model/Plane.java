@@ -13,6 +13,7 @@ import java.util.List;
 @Getter
 @Setter
 public abstract class Plane {
+
     @Id
     @GeneratedValue
     private long id;

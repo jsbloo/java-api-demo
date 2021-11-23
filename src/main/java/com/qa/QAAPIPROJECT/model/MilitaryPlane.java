@@ -18,7 +18,7 @@ public class MilitaryPlane{
 
     @Id
     @GeneratedValue
-    private long id;
+    long id;
 
     @NotNull
     @Column
@@ -32,6 +32,7 @@ public class MilitaryPlane{
     @Column
     private String introductionDate;
 
+    @NotNull
     @Column
     private int numberBuilt;
 
@@ -40,19 +41,24 @@ public class MilitaryPlane{
     @ElementCollection
     private List<String> primaryUsers;
 
+    @NotNull
     @Column (columnDefinition = "TEXT")
     private String description;
 
+    @NotNull
     @Column
     @ElementCollection
     private List<String> armament;
 
+    @NotNull
     @Column
     private int attackPower;
 
+    @NotNull
     @Column
     private int maneuverability;
 
+    @NotNull
     @Column
     private double topSpeed;
 
