@@ -1,7 +1,6 @@
 package com.qa.QAAPIPROJECT.repository;
 
 import com.qa.QAAPIPROJECT.model.MilitaryPlane;
-import com.qa.QAAPIPROJECT.model.Plane;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

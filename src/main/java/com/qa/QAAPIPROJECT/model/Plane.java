@@ -15,7 +15,7 @@ import java.util.List;
 public abstract class Plane {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
