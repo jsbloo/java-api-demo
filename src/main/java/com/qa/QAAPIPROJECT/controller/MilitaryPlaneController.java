@@ -1,11 +1,8 @@
 package com.qa.QAAPIPROJECT.controller;
 
 import com.qa.QAAPIPROJECT.dto.MilitaryPlaneDTO;
-import com.qa.QAAPIPROJECT.dto.PlaneDTO;
 import com.qa.QAAPIPROJECT.model.MilitaryPlane;
-import com.qa.QAAPIPROJECT.model.Plane;
 import com.qa.QAAPIPROJECT.service.MilitaryPlaneService;
-import com.qa.QAAPIPROJECT.service.PlaneService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
