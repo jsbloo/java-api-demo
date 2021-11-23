@@ -9,6 +9,7 @@ import java.util.List;
 
 @Repository
 public interface MilitaryPlaneRepository extends JpaRepository<MilitaryPlane, Long> {
-
+    List<MilitaryPlane> findPlaneByModelName(String name);
+    List<MilitaryPlane> findPlaneByNationalOrigin(String nation);
 }
 
