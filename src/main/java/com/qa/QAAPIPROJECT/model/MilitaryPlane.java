@@ -18,7 +18,7 @@ public class MilitaryPlane{
 
     @Id
     @GeneratedValue
-    long id;
+    private long id;
 
     @NotNull
     @Column
