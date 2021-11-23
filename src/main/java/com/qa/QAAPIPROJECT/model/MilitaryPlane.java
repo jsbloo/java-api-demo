@@ -17,7 +17,7 @@ import java.util.List;
 public class MilitaryPlane{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull

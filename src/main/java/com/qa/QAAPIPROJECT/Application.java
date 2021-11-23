@@ -5,9 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import java.sql.Statement;
-import java.time.LocalTime;
-
 @SpringBootApplication
 @EnableJpaRepositories("com.qa.QAAPIPROJECT.repository")
 public class Application {
