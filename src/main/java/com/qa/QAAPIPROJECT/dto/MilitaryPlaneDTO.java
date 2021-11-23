@@ -21,6 +21,8 @@ public class MilitaryPlaneDTO extends Plane {
         super(modelName, nationalOrigin, introductionDate, numberBuilt, primaryUsers, description);
     }
 
+    private long id;
+
     private List<String> armament;
 
     private int attackPower;

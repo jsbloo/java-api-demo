@@ -12,8 +12,7 @@ import java.util.List;
 @EqualsAndHashCode
 @Getter
 @Setter
-@Entity
-public class Plane {
+public abstract class Plane {
     @Id
     @GeneratedValue
     private long id;
@@ -33,7 +32,6 @@ public class Plane {
     @Column
     private int numberBuilt;
 
-    @NotNull
     @Column
     @ElementCollection
     private List<String> primaryUsers;
