@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public abstract class PlaneDTO {
+public class PlaneDTO {
 
     private long id;
 
