@@ -12,10 +12,10 @@ import java.util.List;
 @EqualsAndHashCode
 @Getter
 @Setter
-@Entity
-public class Plane {
+public abstract class Plane {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
@@ -33,7 +33,6 @@ public class Plane {
     @Column
     private int numberBuilt;
 
-    @NotNull
     @Column
     @ElementCollection
     private List<String> primaryUsers;
