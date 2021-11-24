@@ -33,8 +33,7 @@ public class MilitaryPlaneService {
         for (MilitaryPlane mp:
              plane) {
             try{
-            repo.save(mp);}catch (Exception e){throw new InvalidPlaneException();
-            }
+            repo.save(mp);}catch (Exception e){throw new InvalidPlaneException();}
         }
     }
 
