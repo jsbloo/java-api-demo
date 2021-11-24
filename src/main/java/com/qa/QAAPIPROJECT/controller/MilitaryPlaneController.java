@@ -37,13 +37,13 @@ public class MilitaryPlaneController{
     @PutMapping("/updateMp/{id}")
     public ResponseEntity<String> update(@PathVariable long id, @RequestBody MilitaryPlane plane) {
         service.update(id, plane);
-        return new ResponseEntity<>("MP updated" + id, HttpStatus.OK);
+        return new ResponseEntity<>("MP updated " + id, HttpStatus.OK);
     }
 
     @PutMapping("deleteMp/{id}")
     public ResponseEntity<String> delete(@PathVariable long id) {
         service.delete(id);
-        return new ResponseEntity<>("deleted "+ id,HttpStatus.FOUND);
+        return new ResponseEntity<>("deleted "+ id,HttpStatus.ACCEPTED);
     }
 
     @GetMapping("readByNameMp/{name}")
