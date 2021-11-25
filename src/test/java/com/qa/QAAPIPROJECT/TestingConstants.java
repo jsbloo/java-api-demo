@@ -27,4 +27,10 @@ public abstract class TestingConstants {
                     4000,pu,"definition",arm,60,
                     30,440.0);
     public static final List<MilitaryPlaneDTO> mpDtos = new ArrayList<>(List.of(mp1SavedDTO));
+    public static final MilitaryPlane mp3 = new MilitaryPlane("tin29","USA","1921",
+            20,pu,"another plane",arm,20,20,200.1);
+    public static final MilitaryPlane mp4 = new MilitaryPlane("spaceship","India",
+            "1959", 100,pu,"description",arm,100,
+            100,99999.0);
+    public static final List<MilitaryPlane> allMps = new ArrayList<>(List.of(mp2,mp3,mp4));
 }

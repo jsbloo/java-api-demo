@@ -20,6 +20,7 @@ public class MilitaryPlaneServiceUnitTest {
     @MockBean
     private MilitaryPlaneRepository repo;
 
+
     @Test
     void testCreate(){
         Mockito.when(this.repo.save(TestingConstants.mp1)).thenReturn(TestingConstants.mp1Saved);
@@ -59,5 +60,21 @@ public class MilitaryPlaneServiceUnitTest {
         final long id = 1L;
         Assertions.assertThat(this.service.delete(id)).isTrue();
         Mockito.verify(this.repo, Mockito.times(1)).deleteById(id);
+    }
+
+    @Test
+    void readByName(){
+        final String name = TestingConstants.mp1Saved.getModelName();
+        Mockito.when(this.repo.findPlaneByModelName(name)).thenReturn(TestingConstants.mp1List);
+        Assertions.assertThat(this.service.readByName(name)).isEqualTo(TestingConstants.mpDtos);
+        Mockito.verify(this.repo,Mockito.times(1)).findPlaneByModelName(name);
+    }
+
+    @Test
+    void readByNationalOrigin(){
+        final String nationalOrigin = TestingConstants.mp1Saved.getNationalOrigin();
+        Mockito.when(this.repo.findPlaneByNationalOrigin(nationalOrigin)).thenReturn(TestingConstants.mp1List);
+        Assertions.assertThat(this.service.readByNationalOrigin(nationalOrigin)).isEqualTo(TestingConstants.mpDtos);
+        Mockito.verify(this.repo,Mockito.times(1)).findPlaneByNationalOrigin(nationalOrigin);
     }
 }
