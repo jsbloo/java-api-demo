@@ -3,6 +3,8 @@ package com.qa.QAAPIPROJECT.controller;
 import com.qa.QAAPIPROJECT.dto.MilitaryPlaneDTO;
 import com.qa.QAAPIPROJECT.model.MilitaryPlane;
 import com.qa.QAAPIPROJECT.service.MilitaryPlaneService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,40 +19,40 @@ public class MilitaryPlaneController{
     }
 
     @PostMapping("/createMp")
-    public String create(@RequestBody List<MilitaryPlane> plane) {
+    public ResponseEntity<String> create(@RequestBody List<MilitaryPlane> plane) {
         service.addPlane(plane);
-        return "mp added";
+        return new ResponseEntity<>("New MilitaryPlane created!",HttpStatus.CREATED);
     }
 
     @GetMapping("/readAllMp")
-    public List<MilitaryPlaneDTO> read() {
-        return service.getAll();
+    public ResponseEntity<List<MilitaryPlaneDTO>> read() {
+        return new ResponseEntity<>(service.getAll(),HttpStatus.OK);
     }
 
     @GetMapping("readByIdMp/{id}")
-    public MilitaryPlaneDTO readById(@PathVariable long id) {
-        return service.readById(id);
+    public ResponseEntity<MilitaryPlaneDTO> readById(@PathVariable long id) {
+        return new ResponseEntity<>(service.readById(id),HttpStatus.FOUND);
     }
 
     @PutMapping("/updateMp/{id}")
-    public String update(@PathVariable long id, @RequestBody MilitaryPlane plane) {
+    public ResponseEntity<String> update(@PathVariable long id, @RequestBody MilitaryPlane plane) {
         service.update(id, plane);
-        return "MP updated" + id;
+        return new ResponseEntity<>("MP updated " + id, HttpStatus.OK);
     }
 
     @PutMapping("deleteMp/{id}")
-    public String delete(@PathVariable long id) {
+    public ResponseEntity<String> delete(@PathVariable long id) {
         service.delete(id);
-        return "deleted "+ id;
+        return new ResponseEntity<>("deleted "+ id,HttpStatus.ACCEPTED);
     }
 
     @GetMapping("readByNameMp/{name}")
-    public List<MilitaryPlaneDTO> readByName(@PathVariable String name) {
-        return service.readByName(name);
+    public ResponseEntity<List<MilitaryPlaneDTO>> readByName(@PathVariable String name) {
+        return new ResponseEntity<>(service.readByName(name), HttpStatus.OK);
     }
 
     @GetMapping("readByNationalOriginMp/{nation}")
-    public List<MilitaryPlaneDTO> readByByNationalOrigin(@PathVariable String nation) {
-        return service.readByNationalOrigin(nation);
+    public ResponseEntity<List<MilitaryPlaneDTO>> readByByNationalOrigin(@PathVariable String nation) {
+        return new ResponseEntity<>(service.readByNationalOrigin(nation), HttpStatus.FOUND);
     }
 }
