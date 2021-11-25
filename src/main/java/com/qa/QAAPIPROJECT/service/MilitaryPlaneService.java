@@ -29,20 +29,21 @@ public class MilitaryPlaneService {
         return this.mapper.map(mp, MilitaryPlaneDTO.class);
     }
 
-    public void addPlane(List<MilitaryPlane> plane) {
+    public boolean addPlane(List<MilitaryPlane> plane) {
         for (MilitaryPlane mp:
              plane) {
             try{
             repo.save(mp);}catch (Exception e){throw new InvalidPlaneException();}
         }
+        return true;
     }
 
-    public void update(long id, MilitaryPlane plane){
+    public MilitaryPlane update(long id, MilitaryPlane plane){
         if(plane.getId()!=id){
             plane.setId(id);
         }
         repo.findById(id).orElseThrow(PlaneNotFoundException::new);
-        try{repo.save(plane);}catch (Exception e){throw new InvalidPlaneException();}
+        try{return repo.save(plane);}catch (Exception e){throw new InvalidPlaneException();}
     }
 
     public List<MilitaryPlaneDTO> getAll(){
@@ -55,10 +56,11 @@ public class MilitaryPlaneService {
         return mapToDto(found);
     }
 
-    public void delete(long id){
+    public boolean delete(long id){
         try{repo.deleteById(id);}catch (Exception e){
             throw new PlaneNotFoundException();
         }
+        return true;
     }
 
     public List<MilitaryPlaneDTO> readByName(String name){
