@@ -1,40 +1,33 @@
-package com.qa.QAAPIPROJECT.model;
+package com.qa.QAAPIPROJECT.dto;
 
+import com.qa.QAAPIPROJECT.model.MilitaryPlane;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import javax.persistence.*;
+import lombok.ToString;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
-public class Airport {
+@ToString
+@EqualsAndHashCode
+public class AirportDTO {
 
-    @Id
     private String airportCode;
 
-    @Column
     private String country;
 
-    @Column
     private String city;
 
-    @Column
     private double longitude;
 
-    @Column
     private double latitude;
 
-    @OneToMany(mappedBy = "airport")
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<MilitaryPlane> militaryPlanes = new ArrayList<>();
 
-    public Airport(String airportCode, String country, String city,
-                   double longitude, double latitude, List<MilitaryPlane> militaryPlanes) {
+    public AirportDTO(String airportCode, String country, String city,
+                      double longitude, double latitude, List<MilitaryPlane> militaryPlanes) {
         this.airportCode = airportCode;
         this.country = country;
         this.city = city;
@@ -43,7 +36,8 @@ public class Airport {
         this.militaryPlanes = militaryPlanes;
     }
 
-    public Airport(){
-
+    AirportDTO(){
+        super();
     }
+
 }
