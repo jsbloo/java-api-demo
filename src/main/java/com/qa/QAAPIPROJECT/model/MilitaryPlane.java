@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,9 +64,13 @@ public class MilitaryPlane{
     @Column
     private double topSpeed;
 
+    @ManyToOne(targetEntity = Airport.class)
+    private Airport airport = null;
+
     public MilitaryPlane(String modelName, String nationalOrigin, String introductionDate,
                          int numberBuilt, List<String> primaryUsers, String description,
-                         List<String> armament, int attackPower, int maneuverability, double topSpeed) {
+                         List<String> armament, int attackPower, int maneuverability,
+                         double topSpeed) {
         this.modelName = modelName;
         this.nationalOrigin = nationalOrigin;
         this.introductionDate = introductionDate;
