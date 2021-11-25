@@ -60,6 +60,9 @@ public abstract class TestingConstants {
     public static final AirportDTO ap2 = new AirportDTO("LHR","UK","Manchester",
             -01.18092,51.509865, mpL);
     public static final List<AirportDTO> apsDTO = new ArrayList<>(List.of(ap1));
+    public static final Airport ap3 = new Airport("LHR","UK","London",
+            -01.18092,51.509865, mpL);
+    public static final List<Airport> aps = new ArrayList<>(List.of(ap3));
 
 
 }
