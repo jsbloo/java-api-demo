@@ -11,7 +11,5 @@ import java.util.List;
 public interface MilitaryPlaneRepository extends JpaRepository<MilitaryPlane, Long> {
     List<MilitaryPlane> findPlaneByModelName(String name);
     List<MilitaryPlane> findPlaneByNationalOrigin(String nation);
-    @Query(value = "select * from military_plane", nativeQuery = true)
-    abstract List<MilitaryPlane> findAllMp();
 }
 
