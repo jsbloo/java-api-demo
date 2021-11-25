@@ -36,7 +36,7 @@ public class AirportDTO {
         this.militaryPlanes = militaryPlanes;
     }
 
-    AirportDTO(){
+    public AirportDTO(){
         super();
     }
 
