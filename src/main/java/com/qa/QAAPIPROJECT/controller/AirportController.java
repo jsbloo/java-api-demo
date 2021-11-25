@@ -33,6 +33,9 @@ public class AirportController {
         return new ResponseEntity<>(service.readByAirportCode(apc), HttpStatus.FOUND);
     }
 
-    
-
+    @PutMapping("/updateAirport/{apc}")
+    public ResponseEntity<String> update(@PathVariable String apc, @RequestBody Airport ap){
+        service.update(apc,ap);
+        return new ResponseEntity<>("Airport " + apc + " Updated", HttpStatus.OK);
+    }
 }

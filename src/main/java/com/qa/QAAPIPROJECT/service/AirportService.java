@@ -3,12 +3,14 @@ package com.qa.QAAPIPROJECT.service;
 import com.qa.QAAPIPROJECT.dto.AirportDTO;
 import com.qa.QAAPIPROJECT.dto.MilitaryPlaneDTO;
 import com.qa.QAAPIPROJECT.exceptions.AirportNotFoundException;
+import com.qa.QAAPIPROJECT.exceptions.InvalidAirportException;
 import com.qa.QAAPIPROJECT.exceptions.PlaneNotFoundException;
 import com.qa.QAAPIPROJECT.model.Airport;
 import com.qa.QAAPIPROJECT.model.MilitaryPlane;
 import com.qa.QAAPIPROJECT.repository.AirportRepository;
 import javassist.NotFoundException;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.InvalidPropertyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import org.springframework.ui.ModelMap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,4 +55,13 @@ public class AirportService {
         Airport found = repo.findById(apc).orElseThrow(AirportNotFoundException::new);
         return mapToDto(found);
     }
+
+    public Airport update(String apc, Airport ap) {
+        if(!Objects.equals(ap.getAirportCode(), apc)) {
+            ap.setAirportCode(apc);
+        }
+        repo.findById(apc).orElseThrow(AirportNotFoundException::new);
+        try{return repo.save(ap);}catch(Exception e){throw new InvalidAirportException();}
+    }
 }
+
