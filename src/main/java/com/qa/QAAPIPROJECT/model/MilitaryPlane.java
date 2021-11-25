@@ -78,6 +78,21 @@ public class MilitaryPlane{
         this.topSpeed = topSpeed;
     }
 
+    public MilitaryPlane(long id, String modelName, String nationalOrigin, String introductionDate,
+                         int numberBuilt, List<String> primaryUsers, String description,
+                         List<String> armament, int attackPower, int maneuverability, double topSpeed) {
+        this.modelName = modelName;
+        this.nationalOrigin = nationalOrigin;
+        this.introductionDate = introductionDate;
+        this.numberBuilt = numberBuilt;
+        this.primaryUsers = primaryUsers;
+        this.description = description;
+        this.armament = armament;
+        this.attackPower = attackPower;
+        this.maneuverability = maneuverability;
+        this.topSpeed = topSpeed;
+    }
+
     public MilitaryPlane(){
 
     }
