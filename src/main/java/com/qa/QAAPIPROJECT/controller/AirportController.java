@@ -38,4 +38,10 @@ public class AirportController {
         service.update(apc,ap);
         return new ResponseEntity<>("Airport " + apc + " Updated", HttpStatus.OK);
     }
+
+    @PutMapping("deleteAirport/{apc}")
+    public ResponseEntity<String> delete(@PathVariable String apc) {
+        service.delete(apc);
+        return new ResponseEntity<>("deleted "+ apc,HttpStatus.ACCEPTED);
+    }
 }
