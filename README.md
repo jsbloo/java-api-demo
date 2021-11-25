@@ -104,7 +104,26 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
 
   </details>
   
-## TODO: Screen shot database, screen shot test coverage, Link Jira, Link Risk assesment 
+  <details>
+  <summary>readByNameMp</summary>
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143453973-5f04abdd-7f50-4e84-99f2-d089fd14bd6b.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143454204-570c345a-1527-4435-b768-bbe83ee62927.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143454250-0b11a47c-8a4a-4199-9771-0c37084a8a40.png)
+  
+  </details>
+  
+  <details>
+  <summary>readByNameNationalOriginMp</summary>
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143454436-adb125f5-e94b-4d85-84d2-ec3a90bb61e3.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143454469-3a61b7f4-676d-4453-a9d0-33a28e13e868.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143454507-382d8b39-7b6c-4fe1-b1a4-f9693782bb9e.png)
+  
+  </details>
+  
+  
+## TODO:Screen shot test coverage, Link Jira, Link Risk assesment 
 
 
 

@@ -68,17 +68,31 @@ public class MilitaryPlaneControllerTest {
 
     @Test
     void TestReadAll() throws Exception{
-
-        //TODO: NEED TO FIGURE OUT HOW TO READ PrimaryUsers and Armament
-
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
                 .request(HttpMethod.GET,"/readAllMp");//empty RequestEntity
         mockRequest.contentType(MediaType.APPLICATION_JSON);//type JSON
         mockRequest.accept(MediaType.APPLICATION_JSON);//expect JSON type
 
         ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();//expected status
+        ResultMatcher matchContent = MockMvcResultMatchers.content()
+                .json(this.jsonifier.writeValueAsString(TestingConstants.allMps));
 
-        this.mock.perform(mockRequest).andExpect(matchStatus);//perform request,expect given
+        try {
+            this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);//perform request,expect given
+        }catch (AssertionError ae){//It expects id of 0, if this is the only issue then test passes. As autoincrement
+            String message = """
+                    [attackPower=1].id
+                    Expected: 0
+                         got: 1
+                     ; [attackPower=20].id
+                    Expected: 0
+                         got: 2
+                     ; [attackPower=100].id
+                    Expected: 0
+                         got: 3                     
+                    """;
+            Assertions.assertEquals(message, ae.getMessage());
+        }
     }
 
     @Test
