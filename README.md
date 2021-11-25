@@ -40,7 +40,7 @@ auto incremental ids when testing.
 
 When you clone the project, if you direct to: http://localhost:8080/swagger-ui/index.html#/ this will display a nice list of all the avalible requests. 
 
-### MilitaryPlane requests 
+## MilitaryPlane requests 
 <b>Click the drop downs to see usage</b>
 
 <details>
@@ -50,11 +50,11 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
 ![image](https://user-images.githubusercontent.com/16117428/143440688-e9611788-202e-466d-94a7-14d3c78548d2.png)
 ![image](https://user-images.githubusercontent.com/16117428/143440567-c9e5e627-882c-4696-9c8e-64df87b6d153.png)
 
-#### Can also handle JSON Array, of Objects:
+### Can also handle JSON Array, of Objects:
 ![image](https://user-images.githubusercontent.com/16117428/143441806-5e5c81f3-6f78-4f2a-a38d-4dc1cc867f8a.png)
 ![image](https://user-images.githubusercontent.com/16117428/143441939-6625b21e-3459-4330-83f5-39afb7323b1e.png)
   
-  #### Persistance 
+  ### Persistance 
 ![image](https://user-images.githubusercontent.com/16117428/143450065-495e2479-1043-4445-9292-1e8fb9af5621.png)
 ![image](https://user-images.githubusercontent.com/16117428/143450190-a716c5fe-fcae-4773-ac83-0740e75eefa0.png)
 ![image](https://user-images.githubusercontent.com/16117428/143450287-ca3c0cbb-2be6-43fc-990e-62ebd98b4e77.png)
@@ -83,11 +83,11 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
 ![image](https://user-images.githubusercontent.com/16117428/143442614-ca3ea0b6-b43e-4ce0-b5c9-83c870ab53bc.png)
 ![image](https://user-images.githubusercontent.com/16117428/143442865-e2cdcafb-199f-4c00-b4e8-610b15e88d62.png)
 ![image](https://user-images.githubusercontent.com/16117428/143442911-c4210797-8647-4828-87f9-6391c87c4eb0.png)
-#### Now if we try to get deleted id:
+### Now if we try to get deleted id:
 ![image](https://user-images.githubusercontent.com/16117428/143443117-71472277-fb0f-4afc-96e8-7ca7e5d090b4.png)
 ![image](https://user-images.githubusercontent.com/16117428/143443162-5f86e024-f9a6-465c-9db3-8e3aafb67e35.png)
  
-  #### Persistance
+  ### Persistance
   ![image](https://user-images.githubusercontent.com/16117428/143450566-8f7c29b1-3618-4d50-bd61-5df79cb20a9f.png)
 
 </details>
@@ -98,11 +98,11 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
 ![image](https://user-images.githubusercontent.com/16117428/143443617-f20a4477-7790-43b7-a71b-0bb95762f292.png)
 ![image](https://user-images.githubusercontent.com/16117428/143443737-12e4a432-6d40-479d-ae62-06ce9254d9ab.png)
 ![image](https://user-images.githubusercontent.com/16117428/143443785-ff6cf6fa-bc52-4de8-99c6-30f7a59f5d9d.png)
-#### If we get id 2, to check update. You can see modelName:P50 changed to P51
+### If we get id 2, to check update. You can see modelName:P50 changed to P51
 ![image](https://user-images.githubusercontent.com/16117428/143443962-4abf974f-41cb-4dd5-a130-bf9ca60ec0ea.png)
 ![image](https://user-images.githubusercontent.com/16117428/143444005-1e936d7e-cbf6-4e73-80a8-0908aab39502.png)
   
-  #### Persistance 
+  ### Persistance 
   
   ![image](https://user-images.githubusercontent.com/16117428/143453180-afccbfca-3a6e-49c8-bf42-585cf4d29c13.png)
 
@@ -126,16 +126,24 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
   
   </details>
   
-  ### Airport Requests 
+  ## Airport Requests 
   //TODO:
   
-  ### ERD
+  ## ERD
   
   <details>
   <summary> show ERD </summary>
   
   ![image](https://user-images.githubusercontent.com/16117428/143498704-1b695bc7-43a4-46b4-8716-6b83c5d30f87.png)
   
+  </details>
+  
+  ## Risk Assesment
+   <details>
+  <summary> Risk Assesment.pdf File</summary>
+  
+  [ra-pdf.pdf](https://github.com/jsbloo/java-api-demo/files/7605187/ra-pdf.pdf)
+
   </details>
   
 
