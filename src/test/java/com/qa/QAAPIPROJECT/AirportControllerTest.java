@@ -87,5 +87,17 @@ public class AirportControllerTest {
         this.mock.perform(mockRequest).andExpect(matchContent).andExpect(matchStatus);
     }
 
+    @Test
+    void TestDelete() throws Exception{
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
+                .request(HttpMethod.PUT,"/deleteAirport/LHR");//empty RequestEntity
+        mockRequest.contentType(MediaType.APPLICATION_JSON);//type JSON
+        mockRequest.accept(MediaType.APPLICATION_JSON);//expect JSON type
+
+        ResultMatcher matchStatus = MockMvcResultMatchers.status().isAccepted();//expected status
+        ResultMatcher matchContent = MockMvcResultMatchers.content().string("deleted LHR");//expected content
+
+        this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);//perform request,expect given
+    }
 
 }

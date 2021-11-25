@@ -57,4 +57,11 @@ public class AirportUnitTest {
         Mockito.verify(this.repo, Mockito.times(1)).findAll();
     }
 
+    @Test
+    void testDelete(){
+        final String apc = "LHR" ;
+        Assertions.assertThat(this.service.delete(apc)).isTrue();
+        Mockito.verify(this.repo, Mockito.times(1)).deleteById(apc);
+    }
+
 }
