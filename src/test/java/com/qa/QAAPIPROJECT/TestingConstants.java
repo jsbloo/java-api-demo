@@ -21,6 +21,10 @@ public abstract class TestingConstants {
             ("hi-plane","iraq","1999",
             1,pu, "cool plane",arm,1,
             2,55.1);
+    public static final MilitaryPlane mp2Saved = new MilitaryPlane
+            (1L,"hi-plane","iraq","1999",
+                    1,pu, "cool plane",arm,1,
+                    2,55.1);
     public static final List<MilitaryPlane> mp1List = new ArrayList<>(List.of(mp1));
     public static final MilitaryPlaneDTO mp1SavedDTO = new MilitaryPlaneDTO
             (1L,"Corsair","USA","1940, March",
@@ -33,4 +37,8 @@ public abstract class TestingConstants {
             "1959", 100,pu,"description",arm,100,
             100,99999.0);
     public static final List<MilitaryPlane> allMps = new ArrayList<>(List.of(mp2,mp3,mp4));
+    public static final MilitaryPlaneDTO mp2DTO = new MilitaryPlaneDTO
+            ("hi-plane","iraq","1999",
+                    1,pu, "cool plane",arm,1,
+                    2,55.1);
 }
