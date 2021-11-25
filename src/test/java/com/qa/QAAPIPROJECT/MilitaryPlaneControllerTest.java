@@ -11,6 +11,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
@@ -27,6 +28,7 @@ import java.util.List;
 @Sql(scripts = {"classpath:test-script-data.sql"},
         executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @ActiveProfiles(profiles = "test")
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)//cleans db before each test
 public class MilitaryPlaneControllerTest {
 
     @Autowired
@@ -172,6 +174,8 @@ public class MilitaryPlaneControllerTest {
 
         ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();//expected status
         ResultMatcher matchContent = MockMvcResultMatchers.content().string("MP updated 1");//expected content
+
+        this.mock.perform(mockRequest).andExpect(matchContent).andExpect(matchStatus);
     }
 }
 
