@@ -49,4 +49,16 @@ public class MilitaryPlaneDTO extends Plane  {
     public MilitaryPlaneDTO(){
         super();
     }
+
+    public MilitaryPlaneDTO(long id, String modelName, String nationalOrigin, String introductionDate,
+                            int numberBuilt, List<String> primaryUsers,
+                            String description, List<String> armament, int attackPower, int maneuverability,
+                            double topSpeed)
+    {
+        super(modelName, nationalOrigin, introductionDate, numberBuilt, primaryUsers, description);
+        this.armament = armament;
+        this.attackPower = attackPower;
+        this.maneuverability = maneuverability;
+        this.topSpeed = topSpeed;
+    }
 }

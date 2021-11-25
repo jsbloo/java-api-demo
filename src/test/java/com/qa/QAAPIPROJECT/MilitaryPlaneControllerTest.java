@@ -19,9 +19,8 @@ import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -40,22 +39,12 @@ public class MilitaryPlaneControllerTest {
     @Autowired
     private ObjectMapper jsonifier;
 
-    private final List<String> pu = new ArrayList<>();
-    private final List<String> arm = new ArrayList<>();
-    private final MilitaryPlane mp1 = new MilitaryPlane
-            ("Corsair","USA","1940, March",
-                    4000,pu,"definition",arm,60,
-                    30,440.0);
-    private final MilitaryPlane mp2 = new MilitaryPlane("hi-plane","iraq","1999",1,pu,
-            "cool plane",arm,1,2,55.1);
-
-
     @Test
-    public void TestCreate() throws Exception{
+    void TestCreate() throws Exception{
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
                 .request(HttpMethod.POST,"/createMp");//empty RequestEntity
         mockRequest.contentType(MediaType.APPLICATION_JSON);//type JSON
-        mockRequest.content(this.jsonifier.writeValueAsString(mp1));//content of request
+        mockRequest.content(this.jsonifier.writeValueAsString(TestingConstants.mp1));//content of request
         mockRequest.accept(MediaType.APPLICATION_JSON);//expect JSON type
 
         ResultMatcher matchStatus = MockMvcResultMatchers.status().isCreated();//expected status
@@ -65,7 +54,7 @@ public class MilitaryPlaneControllerTest {
     }
 
     @Test
-    public void TestDelete() throws Exception{
+    void TestDelete() throws Exception{
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
                 .request(HttpMethod.PUT,"/deleteMp/1");//empty RequestEntity
         mockRequest.contentType(MediaType.APPLICATION_JSON);//type JSON
@@ -78,7 +67,7 @@ public class MilitaryPlaneControllerTest {
     }
 
     @Test
-    public void TestReadAll() throws Exception{
+    void TestReadAll() throws Exception{
 
         //TODO: NEED TO FIGURE OUT HOW TO READ PrimaryUsers and Armament
 
@@ -93,14 +82,14 @@ public class MilitaryPlaneControllerTest {
     }
 
     @Test
-    public void TestReadById() throws Exception{
+    void TestReadById() throws Exception{
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
                 .request(HttpMethod.GET,"/readByIdMp/1");//empty RequestEntity
         mockRequest.contentType(MediaType.APPLICATION_JSON);//type JSON
         mockRequest.accept(MediaType.APPLICATION_JSON);//expect JSON type
 
         ResultMatcher matchStatus = MockMvcResultMatchers.status().isFound();//expected status
-        ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(mp2));//expected content
+        ResultMatcher matchContent = MockMvcResultMatchers.content().json(jsonifier.writeValueAsString(TestingConstants.mp2));//expected content
 
         try {
             this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);//perform request,expect given
@@ -115,9 +104,9 @@ public class MilitaryPlaneControllerTest {
     }
 
     @Test
-    public void TestReadByName() throws Exception{
+    void TestReadByName() throws Exception{
         ArrayList<MilitaryPlane> mps = new ArrayList<>();
-        mps.add(mp2);
+        mps.add(TestingConstants.mp2);
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
                 .request(HttpMethod.GET,"/readByNameMp/hi-plane");//empty RequestEntity
@@ -140,9 +129,9 @@ public class MilitaryPlaneControllerTest {
     }
 
     @Test
-    public void TestReadByNationalOrigin() throws Exception{
+    void TestReadByNationalOrigin() throws Exception{
         ArrayList<MilitaryPlane> mps = new ArrayList<>();
-        mps.add(mp2);
+        mps.add(TestingConstants.mp2);
 
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
                 .request(HttpMethod.GET,"/readByNationalOriginMp/iraq");//empty RequestEntity
@@ -165,11 +154,11 @@ public class MilitaryPlaneControllerTest {
     }
 
     @Test
-    public void TestUpdate() throws Exception{
+    void TestUpdate() throws Exception{
         MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders
                 .request(HttpMethod.PUT,"/updateMp/1");//empty RequestEntity
         mockRequest.contentType(MediaType.APPLICATION_JSON);//type JSON
-        mockRequest.content(this.jsonifier.writeValueAsString(mp1));
+        mockRequest.content(this.jsonifier.writeValueAsString(TestingConstants.mp1));
         mockRequest.accept(MediaType.APPLICATION_JSON);//expect JSON type
 
         ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();//expected status
