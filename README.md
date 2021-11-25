@@ -32,6 +32,10 @@ auto incremental ids when testing.
 ### Possible improvements
 //to:do
 
+## Test Coverage
+![image](https://user-images.githubusercontent.com/16117428/143497793-abd4b117-beda-4503-b911-86f6f8b48313.png)
+
+
 ## Requests 
 
 When you clone the project, if you direct to: http://localhost:8080/swagger-ui/index.html#/ this will display a nice list of all the avalible requests. 
