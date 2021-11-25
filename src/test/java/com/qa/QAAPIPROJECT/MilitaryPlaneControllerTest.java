@@ -76,30 +76,21 @@ public class MilitaryPlaneControllerTest {
 
         ResultMatcher matchStatus = MockMvcResultMatchers.status().isOk();//expected status
         ResultMatcher matchContent = MockMvcResultMatchers.content()
-                .json(this.jsonifier.writeValueAsString(TestingConstants.allMps));
+                .json(this.jsonifier.writeValueAsString(TestingConstants.allMpsDTO));
         try {
             this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchContent);//perform request,expect given
         }catch (AssertionError ae){//jsonifer cannot resolve auto incremented id's, checking for assumed assertion
             String message = """
-                    [attackPower=1]
-                    Expected: airport
-                         but none found
-                     ; [attackPower=1].id
+                    [attackPower=1].id
                     Expected: 0
                          got: 1
-                     ; [attackPower=20]
-                    Expected: airport
-                         but none found
                      ; [attackPower=20].id
                     Expected: 0
                          got: 2
-                     ; [attackPower=100]
-                    Expected: airport
-                         but none found
                      ; [attackPower=100].id
                     Expected: 0
-                         got: 3                    
-                         """;
+                         got: 3                
+                                """;
             Assertions.assertEquals(message, ae.getMessage());
         }
     }
