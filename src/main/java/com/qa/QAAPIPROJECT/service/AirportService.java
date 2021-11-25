@@ -63,5 +63,12 @@ public class AirportService {
         repo.findById(apc).orElseThrow(AirportNotFoundException::new);
         try{return repo.save(ap);}catch(Exception e){throw new InvalidAirportException();}
     }
+
+    public boolean delete(String apc){
+        try{repo.deleteById(apc);}catch (Exception e){
+            throw new PlaneNotFoundException();
+        }
+        return true;
+    }
 }
 
