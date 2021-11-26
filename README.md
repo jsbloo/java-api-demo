@@ -29,8 +29,18 @@ that important in the grand scheme of the overall projects purpose.
 I also ran into many small issues that became time sinks, such as dealing with JSON Arrays when testing, SQL syntax issues (Using " instead of ') and issues with 
 auto incremental ids when testing. 
 
+One interesting issue I faced, was a recursive loop when adding a plane to an airport. I found out this was caused by the ModdelMapper when serializing,
+I fixed this using the ``` @JsonBackReference ``` annotation. 
+
 ### Possible improvements
-//to:do
+I didn't get time to fully implement my one to many, airport to plane relation. I have only implemented, a method to add a plane to an airport. In the future I will, add more functionality to this. I also planed on a battle and travel feature. So planes could fight each other and travel between airports. If I had another week to work on this, I would implement these features.
+
+I would also improve how PrimaryUsers and Armament are handled, there current implementation works but it is a bit buggy. A better many to one realtion, implementation would have been better.
+
+I could also make my tests more extensive, testing for edgecases and failures. Instead of just expected functionality. 
+
+I did not spend much time, writting my Jira Stories. They are fine for me to understand, but if I was working In a team I would make sure these are more defined. The same 
+can be said for my pull request comments. 
 
 ## Test Coverage
 ![image](https://user-images.githubusercontent.com/16117428/143503826-9a0cbfb2-4e25-4870-abb4-483810f0b40a.png)
@@ -128,15 +138,78 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
   </details>
   
   ## Airport Requests 
-  //TODO:
+  <details>
+  <summary> createAirport </summary>
   
+  ![image](https://user-images.githubusercontent.com/16117428/143511375-ae559ba8-ca02-4413-bb04-593f77bccf32.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143511468-afc21130-5c68-44da-aa15-5e12236c40f2.png)
+  
+  ### Persistance
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143511497-01addca6-3bfa-4c65-abbf-24390e78b458.png)
+  
+  </details>
+  
+  <details>
+  
+  <summary> readAllAirport </summary>
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143511610-9b2fadda-3ef9-4bfc-a6f5-fa8006986915.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143511643-2bf54f04-d694-4f39-963a-abba75c336d5.png)
+ 
+  </details>
+  
+  <details>
+  
+  <summary> readByAirportCode </summary>
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143511726-6980dd9a-981a-45af-9107-4741fea749d0.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143511751-b49bbce4-c31c-46f6-9c7a-15bccac69f1a.png)
+  
+  </details>
+  
+  <details>
+  
+  <summary> updateAirport </summary>
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143512487-dc1733d4-c3e4-4749-9ad8-8c9274f8483f.png)
+  
+  ### Persistance 
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143512536-9234fffc-eed0-48ef-9138-302fb0418e5d.png)
+  
+  </details>
+  
+  <details>
+  
+  <summary>deleteAirport</summary>
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143512629-78a86aa3-1d54-4236-97b5-79def3f9004e.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143512648-7b2afea0-431c-4e88-a6df-4859f7726599.png)
+  
+  ### Persistance
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143512678-bfbed119-58c3-43bf-9008-c02298a86604.png)
+ 
+  </details>
+  
+  <details>
+  
+  <summary> addMpToAirport </summary>
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143512803-c4e57f07-13d1-4368-a707-5e72d78d221a.png)
+  ![image](https://user-images.githubusercontent.com/16117428/143513514-84bc4379-f03f-4b0f-b1c5-e1ce20eb4349.png)
+
+  ### Persistance
+  
+  ![image](https://user-images.githubusercontent.com/16117428/143513543-59a68aad-99bd-420f-8858-ed3f4de88117.png)
+
   ## ERD
   
   <details>
   <summary> show ERD </summary>
   
   ![image](https://user-images.githubusercontent.com/16117428/143498704-1b695bc7-43a4-46b4-8716-6b83c5d30f87.png)
-  
   </details>
   
   ## Risk Assesment
@@ -148,7 +221,7 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
   </details>
   
 
-## TODO:Screen shot test coverage, Link Jira, Link Risk assesment 
+##Link Jira
 
 
 
