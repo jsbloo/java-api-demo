@@ -203,6 +203,8 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
   ### Persistance
   
   ![image](https://user-images.githubusercontent.com/16117428/143513543-59a68aad-99bd-420f-8858-ed3f4de88117.png)
+  
+  </details>
 
   ## ERD
   
@@ -221,8 +223,9 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
   </details>
   
 
-##Link Jira
-
+### Link to Jira
+  
+https://joshuaqa123.atlassian.net/jira/software/projects/QAP/boards/6/backlog?selectedIssue=QAP-62
 
 
 
