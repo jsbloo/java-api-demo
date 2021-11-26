@@ -35,11 +35,11 @@ I fixed this using the ``` @JsonBackReference ``` annotation.
 ### Possible improvements
 I didn't get time to fully implement my one to many, airport to plane relation. I have only implemented, a method to add a plane to an airport. In the future I will, add more functionality to this. I also planed on a battle and travel feature. So planes could fight each other and travel between airports. If I had another week to work on this, I would implement these features.
 
-I would also improve how PrimaryUsers and Armament are handled, there current implementation works but it is a bit buggy. A better many to one realtion, implementation would have been better.
+I would also improve how PrimaryUsers and Armament are handled, there current implementation works but it is a bit buggy. A better many to one relation, implementation would have been better.
 
 I could also make my tests more extensive, testing for edgecases and failures. Instead of just expected functionality. 
 
-I did not spend much time, writting my Jira Stories. They are fine for me to understand, but if I was working In a team I would make sure these are more defined. The same 
+I did not spend much time, writing my Jira Stories. They are fine for me to understand, but if I was working In a team I would make sure these are more defined. The same 
 can be said for my pull request comments. 
 
 ## Test Coverage
@@ -49,7 +49,7 @@ can be said for my pull request comments.
 
 ## Requests 
 
-When you clone the project, if you direct to: http://localhost:8080/swagger-ui/index.html#/ this will display a nice list of all the avalible requests. 
+When you clone the project, if you direct to: http://localhost:8080/swagger-ui/index.html#/ this will display a nice list of all the available requests. 
 
 ## MilitaryPlane requests 
 <b>Click the drop downs to see usage</b>
