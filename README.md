@@ -35,7 +35,7 @@ I fixed this using the ``` @JsonBackReference ``` annotation.
 ### Possible improvements
 I didn't get time to fully implement my one to many, airport to plane relation. I have only implemented, a method to add a plane to an airport. In the future I will, add more functionality to this. I also planed on a battle and travel feature. So planes could fight each other and travel between airports. If I had another week to work on this, I would implement these features.
 
-I would also improve how PrimaryUsers and Armament are handled, there current implementation works but it is a bit buggy. A better many to one relation, implementation would have been better.
+I would also improve how PrimaryUsers and Armament are handled, their current implementation works but it is a bit buggy. A better many to one relation, implementation would have been better.
 
 I could also make my tests more extensive, testing for edgecases and failures. Instead of just expected functionality. 
 
@@ -232,6 +232,7 @@ https://joshuaqa123.atlassian.net/jira/software/projects/QAP/boards/6/backlog?se
 </details>
 
 
+Note to marker, please look through my commit history. My network graph is buggy.
 
 
 
