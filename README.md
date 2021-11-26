@@ -218,7 +218,7 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
    <details>
   <summary> Risk Assesment.pdf File</summary>
   
-  [ra-pdf.pdf](https://github.com/jsbloo/java-api-demo/files/7605187/ra-pdf.pdf)
+  [ra2-pdf.pdf](https://github.com/jsbloo/java-api-demo/files/7608762/ra2-pdf.pdf)
 
   </details>
   
