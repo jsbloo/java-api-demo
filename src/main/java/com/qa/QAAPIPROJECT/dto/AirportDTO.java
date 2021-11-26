@@ -24,7 +24,7 @@ public class AirportDTO {
 
     private double latitude;
 
-    private List<MilitaryPlane> militaryPlanes = new ArrayList<>();
+    private List<MilitaryPlane> militaryPlanesInAirport;
 
     public AirportDTO(String airportCode, String country, String city,
                       double longitude, double latitude, List<MilitaryPlane> militaryPlanes) {
@@ -33,7 +33,7 @@ public class AirportDTO {
         this.city = city;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.militaryPlanes = militaryPlanes;
+        this.militaryPlanesInAirport = militaryPlanes;
     }
 
     public AirportDTO(){

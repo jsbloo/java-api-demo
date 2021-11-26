@@ -1,5 +1,7 @@
 package com.qa.QAAPIPROJECT.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -65,6 +67,7 @@ public class MilitaryPlane{
     private double topSpeed;
 
     @ManyToOne(targetEntity = Airport.class)
+    @JsonBackReference
     private Airport airport = null;
 
     public MilitaryPlane(String modelName, String nationalOrigin, String introductionDate,
