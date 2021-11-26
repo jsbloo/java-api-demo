@@ -222,10 +222,14 @@ When you clone the project, if you direct to: http://localhost:8080/swagger-ui/i
 
   </details>
   
-
-### Link to Jira
+## Jira
+  
+<details>
+  <summary> Link to Jira </summary>
   
 https://joshuaqa123.atlassian.net/jira/software/projects/QAP/boards/6/backlog?selectedIssue=QAP-62
+  
+</details>
 
 
 
