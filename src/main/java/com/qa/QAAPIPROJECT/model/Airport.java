@@ -31,7 +31,7 @@ public class Airport {
 
     @OneToMany(mappedBy = "airport")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<MilitaryPlane> militaryPlanes = new ArrayList<>();
+    private List<MilitaryPlane> militaryPlanesInAirport;
 
     public Airport(String airportCode, String country, String city,
                    double longitude, double latitude, List<MilitaryPlane> militaryPlanes) {
@@ -40,7 +40,7 @@ public class Airport {
         this.city = city;
         this.longitude = longitude;
         this.latitude = latitude;
-        this.militaryPlanes = militaryPlanes;
+        this.militaryPlanesInAirport = militaryPlanes;
     }
 
     public Airport(){

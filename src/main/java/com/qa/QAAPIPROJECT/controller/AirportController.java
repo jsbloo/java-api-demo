@@ -44,4 +44,10 @@ public class AirportController {
         service.delete(apc);
         return new ResponseEntity<>("deleted "+ apc,HttpStatus.ACCEPTED);
     }
+
+    @PutMapping("addMpToAirport/{id}/{apc}")
+    public ResponseEntity<String> addToAirport(@PathVariable long id, @PathVariable String apc){
+        service.addToAirport(id, apc);
+        return new ResponseEntity<>("Added "+id+" to "+apc, HttpStatus.ACCEPTED);
+    }
 }

@@ -8,6 +8,7 @@ import com.qa.QAAPIPROJECT.exceptions.PlaneNotFoundException;
 import com.qa.QAAPIPROJECT.model.Airport;
 import com.qa.QAAPIPROJECT.model.MilitaryPlane;
 import com.qa.QAAPIPROJECT.repository.AirportRepository;
+import com.qa.QAAPIPROJECT.repository.MilitaryPlaneRepository;
 import javassist.NotFoundException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.InvalidPropertyException;
@@ -25,12 +26,17 @@ import java.util.stream.Collectors;
 public class AirportService {
 
     private AirportRepository repo;
+    private MilitaryPlaneRepository mpRepo;
+    private MilitaryPlaneService mpService;
     private ModelMapper mapper;
 
     @Autowired
-    public AirportService(AirportRepository repo, ModelMapper mapper){
+    public AirportService(AirportRepository repo, ModelMapper mapper, MilitaryPlaneRepository mpRepo,
+    MilitaryPlaneService mpService){
         this.repo = repo;
         this.mapper = mapper;
+        this.mpRepo = mpRepo;
+        this.mpService = mpService;
     }
 
     private AirportDTO mapToDto(Airport ap){
@@ -69,6 +75,16 @@ public class AirportService {
             throw new PlaneNotFoundException();
         }
         return true;
+    }
+
+    public boolean addToAirport(long id, String apc) {
+
+     Airport ap = repo.findById(apc).orElseThrow(AirportNotFoundException::new);
+     MilitaryPlane mp = mpRepo.findById(id).orElseThrow(PlaneNotFoundException::new);
+     mp.setAirport(ap);
+     mpService.update(id,mp);
+
+     return true;
     }
 }
 

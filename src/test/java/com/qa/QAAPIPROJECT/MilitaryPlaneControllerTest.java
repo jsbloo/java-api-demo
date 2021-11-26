@@ -111,12 +111,9 @@ public class MilitaryPlaneControllerTest {
         }catch (AssertionError ae){//It expects id of 0, if this is the only issue then test passes,
             // issue with jsonifier so AE needs to be caught. If wrong object given it will fail correctly
             String message = """
-                    
-                    Expected: airport
-                         but none found
-                     ; id
+                    id
                     Expected: 0
-                         got: 1                     
+                         got: 1                 
                          """;
             Assertions.assertEquals(message, ae.getMessage());
         }
