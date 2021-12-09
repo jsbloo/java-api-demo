@@ -232,7 +232,7 @@ https://joshuaqa123.atlassian.net/jira/software/projects/QAP/boards/6/backlog?se
 </details>
 
 
-Note to marker, please look through my commit history. My network graph is buggy.
+
 
 
 
